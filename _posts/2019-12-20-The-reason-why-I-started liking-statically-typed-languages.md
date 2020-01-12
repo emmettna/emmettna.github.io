@@ -59,7 +59,7 @@ loadConfig(
   pass = configPass)
 ```
 
-it does require a bit more typing. also it looks messier sometimes. but again very recommendable way to save your ass most of the time. Trust me
+It does require a bit more typing. also it looks messier sometimes. but again very recommendable way to save your ass most of the time. Trust me
 
 I always thought good code is shortest code so it can be maintainable easier since there's not much code. but lately, a length of code is fine as long as it's understandable. I use other tricks to shorten codes. I hope to have a chance share my tricks some day.
 
