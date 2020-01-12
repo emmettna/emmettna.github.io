@@ -4,6 +4,7 @@ title: "The reason why I started liking statically typed languages"
 date: 2019-12-20 00:00:00 -0000
 categories: jekyll update
 author: Emmett Na
+comments: true
 ---
 Back when I landed my very first job as a developer, my Moto was 'As long as it works, it doesn't really matter' Since I didn't have any mentor nor any teacher to correct me, failure was the only way to learn something. Although it was difficult and hard way but clear way to carve  the lesson in my mind.
 
