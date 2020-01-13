@@ -36,7 +36,7 @@ My domain model was coming all the way from back to front moving back and forth.
 
 It would've been much easier if one senior developer reviewed my code and gave me some hints that I'm running toward wrong way. So I need to lift my head up and find the goal first.
 
-If I make my point clear,
+If I make my points clear,
 
 1. Make function names which suit the behavior of a function or a variable. So your teammate(s) can know what the function does better. It's never enough to mention its importance.
 
