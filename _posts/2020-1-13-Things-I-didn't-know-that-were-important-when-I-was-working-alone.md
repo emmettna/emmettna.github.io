@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Things-I-didn't-know-that-were-important-when-I-was-working-alone"
+title: "Things I didn't know that were important when I was working alone"
 date: 2020-1-13
 categories: jekyll update
 author: Emmett Na
