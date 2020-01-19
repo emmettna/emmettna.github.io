@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Things I didn't know that were important when I was working alone"
-date: 2020-1-13
-categories: jekyll update
-author: Emmett Na
+categories: [Codereview, personal, teamwork]
+author: emmett
 comments: true
 ---
 I'd like to share some of my mistakes that I didn't know that were important when I was working alone. Especially if you are the only developer in your team or company, probably starting start up company, you may have made the same mistakes.

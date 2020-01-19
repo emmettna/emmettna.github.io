@@ -2,8 +2,8 @@
 layout: post
 title: "The reason why I started liking statically typed languages"
 date: 2019-12-20 00:00:00 -0000
-categories: jekyll update
-author: Emmett Na
+categories: [personal, experience, statically, typed, scala]
+author: emmett
 comments: true
 tags: [scala, software programming, statically, typed, language]
 ---

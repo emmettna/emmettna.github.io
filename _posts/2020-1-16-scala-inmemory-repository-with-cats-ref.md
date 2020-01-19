@@ -2,9 +2,11 @@
 layout: post
 title: "Scala InMemory Repository with Cats Ref"
 date: 2020-1-16
-categories: programming scala
-author: Emmett Na
+categories: [programming, scala, software development, in memory, cats, ref]
+author: emmett
 comments: true
+image: assets/images/6.jpg
+featured: true
 ---
 1. Not enough time to implement Real persistent storage.
 2. But stub is too limited option for various cases.
