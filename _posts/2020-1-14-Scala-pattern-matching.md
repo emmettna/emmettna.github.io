@@ -5,7 +5,7 @@ date: 2020-1-14
 categories: [programming scala, software development, scala, pattern matching, type]
 author: emmett
 comments: true
-image: assets/images/5.jpg
+image: assets/images/scala-pattern-matching-logo.png
 featured: true
 ---
 If you are a Scala user, you probably use pattern matching pretty often. It's really power and useful feature. it's not like Java's asInstanceOf. It doesn't get runtime error without parsing try catch. Well, if you are a Scala user, you don't really use try catch tho.

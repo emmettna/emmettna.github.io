@@ -5,7 +5,7 @@ date: 2020-1-16
 categories: [programming, scala, software development, in memory, cats, ref]
 author: emmett
 comments: true
-image: assets/images/6.jpg
+image: assets/images/cats-logo.png
 featured: true
 ---
 1. Not enough time to implement Real persistent storage.
