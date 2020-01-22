@@ -6,6 +6,5 @@ categories: [programming, software development, test, postgres, repository, pers
 author: emmett
 comments: true
 image: assets/images/cats-logo.png
-featured: true
 hidden: true
 ---

@@ -6,7 +6,6 @@ categories: [programming, scala, software development, in memory, cats, ref, eve
 author: emmett
 comments: true
 image: assets/images/cats-logo.png
-featured: true
 hidden: true
 ---
 ???
