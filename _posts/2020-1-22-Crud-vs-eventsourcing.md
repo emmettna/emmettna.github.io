@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CRUD vs EventSourcing"
-date: 2020-1-21
+date: 2020-1-22
 categories: [programming, software development, event, sourcing, crud, architecture]
 author: emmett
 comments: true
