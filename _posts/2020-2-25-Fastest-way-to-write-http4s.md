@@ -8,7 +8,6 @@ comments: true
 image: assets/images/http4slogo.png
 hidden: false
 ---
-
 Fastest way to deploy Http4s
 
 There are a few options when it comes to deploy http server using Scala. If your server is to be a full stack server which needs to deploy webpage and server at the same time, Play will be a good option. But if your intention is to deploy a rest api server and if you wanna use more type stricter  codings, Http4s is the best option I believe.
@@ -208,6 +207,9 @@ Emmett> curl --header "Content-Type: application/json" --request POST --data '{"
 So, all the requirements are met.
 I hope you got the concept of the usage of Http4s. It was really vague for me when I first entered Scala world. Especially with the `F` type. But don't despair there's no enlightenment  without struggle.
 
+I added repository on reference that i worked you can match with yours if you can't catch up
+
+Good Code!
 
 **Reference**
 
@@ -215,5 +217,6 @@ Http4s giter8 template : [github](https://github.com/http4s/http4s.g8)
 
 Http4s document : [document](https://http4s.org/latest/)
 
+repository : [http4stutorial](https://github.com/emmettna/http4stutorial)
 
 
