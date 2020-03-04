@@ -2,7 +2,7 @@
 layout: post
 title: "Fastest way to write DB(postgres)"
 date: 2020-3-4
-categories: [programming, software development]
+categories: [programming, software development, http4s, doobie, postgres]
 author: emmett
 comments: true
 image: assets/images/http4slogo.png
