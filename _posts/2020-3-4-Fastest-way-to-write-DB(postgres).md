@@ -8,8 +8,6 @@ comments: true
 image: assets/images/doobie+postgres.png
 hidden: false
 ---
-# Fastest way to write DB(PostgreSQL)
-
 Back when I first started connecting persistent storage, I had no idea absolutely. It was a nightmare literally. Things I googled didn't work for some reasons. Most of them were too outdated and some are just not working codes. I didn't know how to customize sample codes since I didn't know the tricks of Type. And things like Resouces or Managed? They just drove me insane.
 
 But I hope you don't walk the hard way i did. Here's minimal tutorial with [example project](https://github.com/emmettna/scalapostgrestutorial). So no one needs to crack foreheads against wall which i did.
@@ -160,7 +158,7 @@ Along with that, there are `ZIO`, `Monix` and others.
 
 Anyways, this is pretty much it. I highly recommend you to check the example repo. since my explanation is not enough. Developers learn from codes i think.
 
-check the transacotrs in [`com.example.tutorial.tutorial.common.persistent`](https://github.com/emmettna/scalapostgrestutorial/tree/master/src/main/scala/com/example/tutorial/tutorial/common/persistent)
+check the transactors in [`com.example.tutorial.tutorial.common.persistent`](https://github.com/emmettna/scalapostgrestutorial/tree/master/src/main/scala/com/example/tutorial/tutorial/common/persistent)
 and repository in [`~~.tutorial.persistent.postgresrepository`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/persistent/postgresrepository/PostgresUserRepository.scala)
 then finally sewing services in [`TutorialServer`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/Main.scala) file and [`Main`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/TutorialServer.scala)
 
