@@ -67,4 +67,4 @@ So briefing up,
 
 1. Employ CRUD for simple data storing app
 2. Event Sourcing is not MacGyver but it's really good when you deal with state.
-3. CQRS is a good help for Event Sourcing.
+3. [CQRS](/docs/architecturedesign/cqrs) is a good help for Event Sourcing.
