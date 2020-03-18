@@ -1,0 +1,54 @@
+---
+layout: post
+title: "Fourth time in startup but I never been to real agile team"
+date: 2020-3-18 00:00:00 -0000
+categories: [personal, experience, agile, scrum]
+author: emmett
+comments: true
+tags: [software programming, development, experience]
+parent: Experience
+nav_order: 4
+---
+Often says it's difficult employ Agile Process in major companies. but I want to ask you back,
+
+ <i>"then is it easy to apply Agile in Startups?"</i>
+
+<b>My First startup team</b> was just teamed up. Though I wasn't one of the cofounders. There were 3 planners only. It was more like team than a company at that time. Anyway, we didn't have an office so got provided by Startup funding programs out of charge. Even it was too far away from all the crews. So no one went to the office. Although it seemed very unstable and unorganized, cofounders had great vision and passion for what we were doing. But just lack of maturity for making this come real.
+
+At that time, I was a novice developer(Well I still am) and I wasn't interested in Development methodologies. I just enjoyed coding itself. So when I got requirements from planners, I straight started coding. Well I guess it rather I didn't have experience in organized team so I only knew about coding than not interested. After a year, our dreams got blown out by financial problem. Then I had to look for the a startup.
+
+<b>My second startup team</b> was dealing with Big data. it was into multiple Government projects and when I joined the team, it was 4 of us then by the time that I left the team, it was 8 of them. A middle size team I reckon. In Dev team, they were using Jira it was more like checking who does what tasks rather than employing Agile. Therefore, there were no objectives for sprints and backlogs were unmanaged. At least there were Product owners mainly product users added backlogs for requests of features and bugs. But no one cared about added backlogs after adding. So there were too many orphan backlogs. One of the task that I worked on was added a year ago. So the reporter was already left the team and I had to implement the feature out of my imagination
+
+The company gave enough support comparatively, but the team didn't know where to run. It seemed it lost its compass. There were many conflicts between team leader and the CEO, I reckon it wasn't kind of a problem that development process can solve. After a while I realized it's not a company that I can try new techs or new features of languages, I was forced to leave the team again. Well I forced myself for trying something new. That's how I started looking for a next startup.
+
+<b>My third startup team</b> was somehow the worst. I personally got compensated better than other previous ones, they didn't care about development process at all. Every planner went straight to developers and asked for features and pressured for deadlines. I don't think they did that from the beginning. Everyone except me was junior with less than a year experience. Moreover they didn't have skills for planning and communication. They thought they must do what they were asked from planners, they were going through too much stress everyday. There were no process nor structure at all worst of all, the codes were crappy too.
+
+Thinking back, as I was in charge of entire development team, my role was very important. But I also was first time as a manager position. I wasn't good at it. I spent most of my time coding rather than helping others solving their problems. in the end, the team got shattered as you can imagine.
+
+If I can go back now, id try <b>teaching teammates how to use Git</b> properly. And change the <b>deploy process weekly base</b>. But there's no guarantee of success. The company was running out of bullets and we just hired 3 more developers which accelerated speed of the crash. But one thing I'm pretty sure that even if Dev team developed everything business side requests, the company would have closed in the end. The reason why, business model wasn't clear and they changed requests very often. They asked feature A yesterday, and they wanted to drop it down and want it B today. It was a total mess.
+
+That's how I started looking for a next startup
+
+<b>My fourth startup team</b> had a famous developer as CTO. It's not that I'm trying to find problems in each teams. But we often face problems than sweetness from the team. In this startup, there was a conflict between Dev team and Every other team except Dev team. Dev team had startup mind but the others didn't. If you argue with me saying "What is startup mind?" I'd say, "People who cares about Agile and Kanban" I guess that's fair enough in the context.
+
+The conflict was too severe actually, after 1 year they are still confronting. In the beginning, a planner who join the company but the position faded out after company changed its goal. So it became the planner for the team. And its background was working in one of the major companies. Which led her to very conservative person when it comes to something new. On the other hand, our famous CTO was trying to employ Agile, Kanban and plus which something I don't know yet. CTO was naturally calm person. So they haven't had server arguments but it was like many combats in various fields.
+
+Dev team used Kanban and Agile. I had vague knowledge about Agile honestly. Furthermore,  I didn't have a chance to learn the word "Kanban" before. I learned Kanban while we work. No one told me what Kanban was nor Agile actually. It's my fault that I didn't ask what they were. I understood it as showing processes by sticky notes on a while board. Like other companies do. If I understood wrong, it would have faced to surface but that's how we used Agile and kanban. I thought that's Kanban until I read about "Kanban"
+
+Adding some information how we used Agile, we had standup every morning 10:45. It was mainly sharing working process. Actually it was all shared on Gitlab so eventually it wasn't necessary. Again, <b>in Scrum we shared only what we were doing that's why it wasn't necessary</b>. Actually, tasks weren't divided into many small tasks, so it was difficult to understand who does what. Besides, there was no sprint which means no weekly goal.
+
+After a while, I was dispatched to daughter company.
+
+<b>My Fourth and a half</b> is one man dev team. It sounds like lonely but actually better than before. I'm surrounded by other team members there's no developer's geeky smell around me anymore. My kind teammates just trying to be polite not saying to me thou. it's more like mouth-to-mouth conversations I try to leave slack threads and notion but verbal conversation is main for now.
+
+The CEO of this company entirely counts on me. I have all the authorities for trying anything new. Which mean I can employ Agile If I want to. But in one man dev team, I wonder if it's necessary. I just try to deploy 2~3 features every week. And we do demo every Tuesday in weekly meeting.
+
+Honestly, too fast development latency makes code bit stinky. So I try to refactor as often as I can irregularly. I only wish I had one developer to review my code. If I add refactoring cycle, it will be pretty decent one man dev cycle. Although Demo is weekly base, I have someone to share business logic with. Even though it's not a developer at least I can assure the logic is not crappy. It will be great to have one more developer but I'm still not sure if I can make 1  + 1 + Alpha effect in two Dev team.
+
+That's been my journal so far. It says Agile is mindset than methodology, minded is pretty abstract concept honestly. Maybe all my startup teams were using Agile? In the end no one uses it perfectly, do they?
+
+In the end Agile is to make outcomes more profitable. Cost efficient should I say ?
+
+Sometimes I ask myself,
+
+> <i>"Will I every be in Agile team ?"</i>
