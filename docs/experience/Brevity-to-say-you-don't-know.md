@@ -9,6 +9,8 @@ tags: [software programming]
 parent: Experience
 nav_order: 3
 ---
+**Brevity to say you don't know**
+
 you can't know things before you try or have experience. But sometimes you are forced to have experience in order to have experience. Such a bizarre situation. Guess when it happens the most ?
 Recruiting. And I had to go through as well.
 
