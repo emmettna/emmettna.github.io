@@ -2,12 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://emmettna.github.io/blog</id>
     <title>Emmett Na | Tech Blog Blog</title>
-    <updated>2017-10-24T06:00:00.000Z</updated>
+    <updated>2021-01-05T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://emmettna.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Emmett Na | Tech Blog news and events.</subtitle>
-    <logo>https://emmettna.github.io/img/favicon.ico</logo>
-    <rights>Copyright © 2021 Your Name or Your Company Name</rights>
+    <logo>https://emmettna.github.io/img/dev_logo_transparant.png</logo>
+    <rights>Copyright © 2021 Emmett Na</rights>
+    <entry>
+        <title type="html"><![CDATA[Sample Post to test]]></title>
+        <id>https://emmettna.github.io/blog/2021/01/05/sample.html</id>
+        <link href="https://emmettna.github.io/blog/2021/01/05/sample.html"/>
+        <updated>2021-01-05T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>Write summary here</p>
+]]></summary>
+        <author>
+            <name>Emmett Na</name>
+            <uri>http://emmettna.io</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[New Version 1.0.0]]></title>
         <id>https://emmettna.github.io/blog/2017/10/24/new-version-1.0.0.html</id>
