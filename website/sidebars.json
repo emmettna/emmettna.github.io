@@ -1,10 +1,53 @@
 {
-  "docs": {
-    "Docusaurus": ["doc1"],
-    "First Category": ["doc2"],
-    "Second Category": ["doc3"]
-  },
-  "docs-other": {
-    "First Category": ["doc4", "doc5"]
+  "blog": {
+    "Programming": [
+      {
+        "type":"subcategory",
+        "label": "Arechitecture & Design",
+        "ids": ["architecture/cqrs", "architecture/crud-vs-eventsourcing"]
+      },
+      {
+        "type":"subcategory",
+        "label": "Scala",
+        "ids": ["scala/fastest-way-to-write-DB(postgres)-with-scala", 
+          "scala/fastest-way-of-write-Http4s-server", 
+          "scala/scala-inmemory-repository-with-cats-ref",
+          "scala/inmemory-event-sourcing-in-scala",
+          "scala/scala-pattern-matching",
+          "scala/tuple-type-alias-and-case-class"
+        ]
+      },
+      {
+        "type":"subcategory",
+        "label": "Functional",
+        "ids": ["functional/covariant-contravariant"]
+      }
+    ],
+    "Data Science": [
+      {
+        "type":"subcategory",
+        "label": "Analysis",
+        "ids": ["dataanalysis/analysis1"]
+      },
+      {
+        "type":"subcategory",
+        "label": "Algorithm",
+        "ids": ["algorithm/algorithm"]
+      }
+      ,
+      {
+        "type":"subcategory",
+        "label": "Deep Learning",
+        "ids": ["deeplearning/deeplearning"]
+      }
+
+    ],
+    "Books": ["book/objective"],
+    "Experience": [
+      "experience/courage-to-say-you-don't-know", 
+      "experience/how-to-communicate-with-non-developer",
+      "experience/reasons-why-i-like-static-types",
+      "experience/things-i-didn't-know-back-then"
+    ]
   }
 }
