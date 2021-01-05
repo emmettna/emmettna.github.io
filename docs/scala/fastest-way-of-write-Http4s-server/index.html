@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Fastest way of write Http4s server · Data and Programming</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="There are a few options when it comes to deploy http server using Scala. If your server is to be a full stack server which needs to deploy webpage and server at the same time, Play will be a good option. But if your intention is to deploy a rest api server and if you wanna use more type stricter  codings, Http4s is the best option I believe."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Fastest way of write Http4s server · Data and Programming"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emmettna.github.io/"/><meta property="og:description" content="There are a few options when it comes to deploy http server using Scala. If your server is to be a full stack server which needs to deploy webpage and server at the same time, Play will be a good option. But if your intention is to deploy a rest api server and if you wanna use more type stricter  codings, Http4s is the best option I believe."/><meta property="og:image" content="https://emmettna.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://emmettna.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/dev_logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-35663966-2', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/dev_logo_transparant.png" alt="Data and Programming"/><h2 class="headerTitleWithLogo">Data and Programming</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/architecture/cqrs" target="_self">Programming</a></li><li class="siteNavGroupActive"><a href="/docs/deeplearning/deeplearning" target="_self">Data Science</a></li><li class=""><a href="/users" target="_self">About</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Scala</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Programming<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Arechitecture &amp; Design</h4><ul><li class="navListItem"><a class="navItem" href="/docs/architecture/cqrs">CQRS</a></li><li class="navListItem"><a class="navItem" href="/docs/architecture/crud-vs-eventsourcing">Crud vs EventSourcing</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Scala</h4><ul><li class="navListItem"><a class="navItem" href="/docs/scala/fastest-way-to-write-DB(postgres)-with-scala">Fastest way to write DB(postgres)</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/scala/fastest-way-of-write-Http4s-server">Fastest way of write Http4s server</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/scala-inmemory-repository-with-cats-ref">InMemory Repository with Cats Ref</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/inmemory-event-sourcing-in-scala">WIP:inmemory-event-sourcing-in-scala</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/scala-pattern-matching">Pattern matching</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/tuple-type-alias-and-case-class">Tuple, Type Alias and Case Class</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Functional</h4><ul><li class="navListItem"><a class="navItem" href="/docs/functional/covariant-contravariant">WIP:Covariant vs Contravariant</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Data Science<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Analysis</h4><ul><li class="navListItem"><a class="navItem" href="/docs/dataanalysis/analysis1">WIP: analysis</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Algorithm</h4><ul><li class="navListItem"><a class="navItem" href="/docs/algorithm/algorithm">WIP:algorithm</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Deep Learning</h4><ul><li class="navListItem"><a class="navItem" href="/docs/deeplearning/deeplearning">WIP:Deep Learning</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Books<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/book/objective">WIP:Ojbective</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Experience<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/experience/courage-to-say-you-don&#x27;t-know">Courage to say you don&#x27;t know</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/how-to-communicate-with-non-developer">Communicate with Non-Devs</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/reasons-why-i-like-static-types">Reasons why I like static types</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/things-i-didn&#x27;t-know-back-then">Things I didn&#x27;t know back then</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Fastest way of write Http4s server</h1></header><article><div><span><p>There are a few options when it comes to deploy http server using Scala. If your server is to be a full stack server which needs to deploy webpage and server at the same time, Play will be a good option. But if your intention is to deploy a rest api server and if you wanna use more type stricter  codings, Http4s is the best option I believe.</p>
+<ol>
+<li>Generate Http4s Server by Sbt commands</li>
+<li>Set basic infos and run</li>
+<li>Trick it by your taste</li>
+</ol>
+<p>We will use following versions, in sbt settings</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> scalaVersion = <span class="hljs-string">"2.13.1"</span>
+<span class="hljs-keyword">val</span> http4sVersion = <span class="hljs-string">"0.21.1"</span>
+<span class="hljs-type">Val</span> circeVersion = <span class="hljs-string">"0.13.0"</span>
+</code></pre>
+<ol>
+<li><p>Generate Http4s Server by Sbt Commands</p>
+<p>I hope you have Sbt and JDK are installed already :)</p></li>
+</ol>
+<pre><code class="hljs">temp sbt new http4s/http4s.g8
+[<span class="hljs-builtin-name">info</span>] Loading<span class="hljs-built_in"> settings </span><span class="hljs-keyword">for</span> project global-plugins <span class="hljs-keyword">from</span> metals.sbt <span class="hljs-built_in">..</span>.
+[<span class="hljs-builtin-name">info</span>] Loading global plugins <span class="hljs-keyword">from</span> /Users/???/.sbt/1.0/plugins
+[<span class="hljs-builtin-name">info</span>] <span class="hljs-builtin-name">Set</span> current project <span class="hljs-keyword">to</span> temp (<span class="hljs-keyword">in</span> build file:/Users/???/temp/)
+[<span class="hljs-builtin-name">info</span>] <span class="hljs-builtin-name">Set</span> current project <span class="hljs-keyword">to</span> temp (<span class="hljs-keyword">in</span> build file:/Users/???/temp/)
+name [quickstart]: tutorial
+organization [com.example]: com.example.tutorial
+package [com.example.tutorial.tutorial]:
+scala_version [2.13.1]:
+sbt_version [1.3.8]:
+http4s_version [0.21.1]:
+circe_version [0.13.0]:
+logback_version [1.2.3]:
+specs2_version [4.8.3]:
+
+Template applied <span class="hljs-keyword">in</span> /Users/???/temp/./tutorial
+
+</code></pre>
+<p>I set the name <code>tutorial</code> if you have a specific project name, then that will be the one for name.</p>
+<p>We are not dealing with logbook and specs2 so it didn't matter much.</p>
+<ol start="2">
+<li>Set basic infos and run
+In my device 8080 is in use with different project so I changed port 8090 at <code>src.main.scala.com.example.tutorial.tutorial.TutorialServer</code></li>
+</ol>
+<blockquote>
+<p>I hope you don't use hard coded port number and host. That's not the best practice as far as I can tell</p>
+</blockquote>
+<p>Since this template project contains revolver already, you can simply run the project <code>reStart</code></p>
+<p>Then you will see</p>
+<pre><code class="hljs">sbt:tutorial&gt; root [ioapp-compute-<span class="hljs-number">0</span>] INFO  o.h.b.c.n.NIO1SocketServerGroup - Service bound to address /<span class="hljs-number">0</span>:<span class="hljs-number">0</span>:<span class="hljs-number">0</span>:<span class="hljs-number">0</span>:<span class="hljs-number">0</span>:<span class="hljs-number">0</span>:<span class="hljs-number">0</span>:<span class="hljs-number">0</span>:<span class="hljs-number">8090</span>
+root [ioapp-compute-<span class="hljs-number">0</span>] INFO  o.h.s.b.BlazeServerBuilder -
+root   <span class="hljs-symbol">_</span>   <span class="hljs-symbol">_</span>   <span class="hljs-symbol">_</span>        <span class="hljs-symbol">_</span> <span class="hljs-symbol">_</span>
+root  | |<span class="hljs-symbol">_</span>| |<span class="hljs-symbol">_</span>| |<span class="hljs-symbol">_</span> <span class="hljs-symbol">_</span> <span class="hljs-symbol">__</span>| | | ___
+root  | ' \  <span class="hljs-symbol">_</span>|  <span class="hljs-symbol">_</span>| '<span class="hljs-symbol">_</span> \<span class="hljs-symbol">_</span>  <span class="hljs-symbol">_</span>(<span class="hljs-symbol">_</span>-&lt;
+root  |<span class="hljs-symbol">_</span>||<span class="hljs-symbol">_</span>\<span class="hljs-symbol">__</span>|\<span class="hljs-symbol">__</span>| .<span class="hljs-symbol">__</span>/ |<span class="hljs-symbol">_</span>|/<span class="hljs-symbol">__</span>/
+root              |<span class="hljs-symbol">_</span>|
+root [ioapp-compute-<span class="hljs-number">0</span>] INFO  o.h.s.b.BlazeServerBuilder - http4s v0<span class="hljs-number">.21</span><span class="hljs-number">.1</span> on blaze v0<span class="hljs-number">.14</span><span class="hljs-number">.11</span> started <span class="hljs-built_in">at</span> http://[::]:<span class="hljs-number">8090</span>/
+</code></pre>
+<p>You can try the already implemented endpoint</p>
+<pre><code class="hljs">curl localhost:<span class="hljs-number">8090</span><span class="hljs-meta-keyword">/hello/</span><span class="hljs-class">emmett
+</span>{<span class="hljs-string">"message"</span>:<span class="hljs-string">"Hello, emmett"</span>}%
+</code></pre>
+<p>This is pretty much just deploying a sample Http4s server. Wasn't so hard actually.
+But you always need to bake your own breads with extra sugars. So let's try that.</p>
+<ol start="3">
+<li>Trick it by your taste</li>
+</ol>
+<p>Let's make some requirements.</p>
+<ul>
+<li>it should be able to return <code>case class</code> defined object</li>
+<li>it should be able to take post request body as <code>case class UserName</code></li>
+<li>it should return Forbidden for anonymous accessing user level request</li>
+</ul>
+<p>first of all, I defined tutorial case class for return on GET request</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">package</span> com.example.tutorial.tutorial.presentation
+
+<span class="hljs-keyword">import</span> io.circe.generic.<span class="hljs-type">JsonCodec</span>
+
+<span class="hljs-meta">@JsonCodec</span>
+<span class="hljs-keyword">final</span> <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tutorial</span>(<span class="hljs-params">id: <span class="hljs-type">BigDecimal</span>, name: <span class="hljs-type">String</span></span>)</span>
+</code></pre>
+<p>JsonCodec is annotated you will want to add <code>-Ymacro-annotations</code> in scalacOptions in <code>build.sbt</code> otherwise it won't compile
+Along side with that, add <code>import org.http4s.circe.CirceEntityCodec._</code> in Routes file
+in my case <code>src.main.scala.com.example.tutorial.tutorial.TutorialRoutes</code></p>
+<p>So far so good ?</p>
+<p>Then I implemented</p>
+<pre><code class="hljs css language-scala">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tutorialRoutes</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Sync</span>] = {
+    <span class="hljs-keyword">val</span> dsl = <span class="hljs-keyword">new</span> <span class="hljs-type">Http4sDsl</span>[<span class="hljs-type">F</span>]{}
+    <span class="hljs-keyword">import</span> dsl._
+    <span class="hljs-type">HttpRoutes</span>.of[<span class="hljs-type">F</span>] {
+      <span class="hljs-keyword">case</span> <span class="hljs-type">GET</span> -&gt; <span class="hljs-type">Root</span> / <span class="hljs-string">"tutorial"</span> =&gt;
+        <span class="hljs-keyword">val</span> tutorial = <span class="hljs-type">Tutorial</span>(<span class="hljs-type">BigDecimal</span>(<span class="hljs-number">1</span>), <span class="hljs-string">"Http4s"</span>)
+        <span class="hljs-keyword">for</span> {
+          resp &lt;- <span class="hljs-type">Ok</span>(tutorial)
+        } <span class="hljs-keyword">yield</span> resp
+    }
+  }
+</code></pre>
+<p>Just returning tutorial on GET request. Pretty simple
+Then add your new route to httpApp on TutorialServer file</p>
+<p>After you restart your project, if you run commands</p>
+<pre><code class="hljs">Emmett&gt; curl localhost:<span class="hljs-number">8090</span>/<span class="hljs-class">tutorial
+</span>{<span class="hljs-string">"id"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"name"</span>:<span class="hljs-string">"Http4s"</span>}%
+</code></pre>
+<p>You will get result like this</p>
+<p>If you got NotFound, you probably forgot to <code>reStart</code> the server or, didn't add in httpApp.</p>
+<p>Apparently requirement 1 is checked.</p>
+<p>For the second requirements,</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">package</span> com.example.tutorial.tutorial.presentation
+
+<span class="hljs-keyword">import</span> io.circe.generic.<span class="hljs-type">JsonCodec</span>
+
+<span class="hljs-meta">@JsonCodec</span>
+<span class="hljs-keyword">final</span> <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserName</span>(<span class="hljs-params">id: <span class="hljs-type">BigDecimal</span>, name: <span class="hljs-type">String</span></span>)</span>
+</code></pre>
+<p>Such case class added. We will be using as input data in Post Request</p>
+<pre><code class="hljs css language-scala">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">userNameInputRoutes</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Sync</span>] = {
+    <span class="hljs-keyword">val</span> dsl = <span class="hljs-keyword">new</span> <span class="hljs-type">Http4sDsl</span>[<span class="hljs-type">F</span>]{}
+    <span class="hljs-keyword">import</span> dsl._
+    <span class="hljs-type">HttpRoutes</span>.of[<span class="hljs-type">F</span>] {
+      <span class="hljs-keyword">case</span> req @ <span class="hljs-type">POST</span> -&gt; <span class="hljs-type">Root</span> / <span class="hljs-string">"user-name"</span> =&gt;
+        <span class="hljs-keyword">for</span> {
+          body &lt;- req.as[<span class="hljs-type">UserName</span>]
+          _ = println(body)
+          resp &lt;- <span class="hljs-type">NoContent</span>()
+        } <span class="hljs-keyword">yield</span> resp
+    }
+  }
+</code></pre>
+<p>What's different from the others is, Obviously POST from GET then I added <code>req@</code> in pattern matching</p>
+<p>After that, add in httpApp just like before,</p>
+<p>run command</p>
+<pre><code class="hljs">Emmett&gt; curl <span class="hljs-params">--header</span> <span class="hljs-string">"Content-Type: application/json"</span> <span class="hljs-params">--request</span> POST <span class="hljs-params">--data</span> '{<span class="hljs-string">"id"</span><span class="hljs-function">:1</span>, <span class="hljs-string">"name"</span>:<span class="hljs-string">"Emmett Na"</span>}' localhost<span class="hljs-function">:8090</span>/user-name
+</code></pre>
+<p>You won't get any result but you will have your UserName class printed on console</p>
+<pre><code class="hljs">root UserName(<span class="hljs-number">1</span>,Emmett Na)
+</code></pre>
+<p>Seems like Requirement two is checked!</p>
+<p>We defined a dummy RegisteredUser list we will consider whoever not in the list is not registered.</p>
+<pre><code class="hljs css language-scala">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">userLoginRoutes</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Sync</span>] = {
+    <span class="hljs-keyword">val</span> registeredUser = <span class="hljs-type">List</span>(<span class="hljs-type">UserName</span>(<span class="hljs-type">BigDecimal</span>(<span class="hljs-number">9999</span>), <span class="hljs-string">"Emmett Na"</span>))
+
+    <span class="hljs-keyword">val</span> dsl = <span class="hljs-keyword">new</span> <span class="hljs-type">Http4sDsl</span>[<span class="hljs-type">F</span>]{}
+    <span class="hljs-keyword">import</span> dsl._
+    <span class="hljs-type">HttpRoutes</span>.of[<span class="hljs-type">F</span>] {
+      <span class="hljs-keyword">case</span> req @ <span class="hljs-type">POST</span> -&gt; <span class="hljs-type">Root</span> / <span class="hljs-string">"user-access"</span> =&gt;
+        <span class="hljs-keyword">for</span> {
+          body &lt;- req.as[<span class="hljs-type">UserName</span>]
+          resp &lt;- registeredUser.contains(body) <span class="hljs-keyword">match</span> {
+            <span class="hljs-keyword">case</span> <span class="hljs-literal">true</span>  =&gt; <span class="hljs-type">Ok</span>(<span class="hljs-string">"Welcome"</span>)
+            <span class="hljs-keyword">case</span> <span class="hljs-literal">false</span> =&gt; <span class="hljs-type">Forbidden</span>(<span class="hljs-string">"Unauthorized User"</span>)
+          }
+        } <span class="hljs-keyword">yield</span> resp
+    }
+  }
+</code></pre>
+<p>Then we curl with data</p>
+<pre><code class="hljs">Emmett&gt; curl <span class="hljs-params">--header</span> <span class="hljs-string">"Content-Type: application/json"</span> <span class="hljs-params">--request</span> POST <span class="hljs-params">--data</span> '{<span class="hljs-string">"id"</span><span class="hljs-function">:1</span>, <span class="hljs-string">"name"</span>:<span class="hljs-string">"Emmett Na"</span>}' localhost<span class="hljs-function">:8090</span>/user-access
+<span class="hljs-string">"Unauthorized User"</span>%
+
+Emmett&gt; curl <span class="hljs-params">--header</span> <span class="hljs-string">"Content-Type: application/json"</span> <span class="hljs-params">--request</span> POST <span class="hljs-params">--data</span> '{<span class="hljs-string">"id"</span><span class="hljs-function">:9999</span>, <span class="hljs-string">"name"</span>:<span class="hljs-string">"Emmett Na"</span>}' localhost<span class="hljs-function">:8090</span>/user-access
+<span class="hljs-string">"Welcome"</span>%
+</code></pre>
+<p>So, all the requirements are met.
+I hope you got the concept of the usage of Http4s. It was really vague for me when I first entered Scala world. Especially with the <code>F</code> type. But don't despair there's no enlightenment  without struggle.</p>
+<p>I added repository on reference that i worked you can match with yours if you can't catch up</p>
+<p>Good Code!</p>
+<p><strong>Reference</strong></p>
+<p>Http4s giter8 template : <a href="https://github.com/http4s/http4s.g8">github</a></p>
+<p>Http4s document : <a href="https://http4s.org/latest/">document</a></p>
+<p>repository : <a href="https://github.com/emmettna/http4stutorial">http4stutorial</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/scala/fastest-way-to-write-DB(postgres)-with-scala"><span class="arrow-prev">← </span><span>Fastest way to write DB(postgres)</span></a><a class="docs-next button" href="/docs/scala/scala-inmemory-repository-with-cats-ref"><span class="function-name-prevnext">InMemory Repository with Cats Ref</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a></a><div></div><div><h5>Social Media</h5><a href="https://www.linkedin.com/in/emmett-sangkyun-na-10236012b/">LinkedIn</a><a href="https://github.com/emmettna">GitHub</a></div><div></div></section><section class="copyright">Copyright © 2021 Emmett Na</section></footer></div></body></html>

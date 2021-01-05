@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Pattern matching · Data and Programming</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="If you are a Scala user, you probably use pattern matching pretty often. It&#x27;s really power and useful feature. it&#x27;s not like Java&#x27;s asInstanceOf. It doesn&#x27;t get runtime error without parsing try catch. Well, if you are a Scala user, you don&#x27;t really use try catch tho."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Pattern matching · Data and Programming"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emmettna.github.io/"/><meta property="og:description" content="If you are a Scala user, you probably use pattern matching pretty often. It&#x27;s really power and useful feature. it&#x27;s not like Java&#x27;s asInstanceOf. It doesn&#x27;t get runtime error without parsing try catch. Well, if you are a Scala user, you don&#x27;t really use try catch tho."/><meta property="og:image" content="https://emmettna.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://emmettna.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/dev_logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-35663966-2', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/dev_logo_transparant.png" alt="Data and Programming"/><h2 class="headerTitleWithLogo">Data and Programming</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/architecture/cqrs" target="_self">Programming</a></li><li class="siteNavGroupActive"><a href="/docs/deeplearning/deeplearning" target="_self">Data Science</a></li><li class=""><a href="/users" target="_self">About</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Scala</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Programming<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Arechitecture &amp; Design</h4><ul><li class="navListItem"><a class="navItem" href="/docs/architecture/cqrs">CQRS</a></li><li class="navListItem"><a class="navItem" href="/docs/architecture/crud-vs-eventsourcing">Crud vs EventSourcing</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Scala</h4><ul><li class="navListItem"><a class="navItem" href="/docs/scala/fastest-way-to-write-DB(postgres)-with-scala">Fastest way to write DB(postgres)</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/fastest-way-of-write-Http4s-server">Fastest way of write Http4s server</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/scala-inmemory-repository-with-cats-ref">InMemory Repository with Cats Ref</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/inmemory-event-sourcing-in-scala">WIP:inmemory-event-sourcing-in-scala</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/scala/scala-pattern-matching">Pattern matching</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/tuple-type-alias-and-case-class">Tuple, Type Alias and Case Class</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Functional</h4><ul><li class="navListItem"><a class="navItem" href="/docs/functional/covariant-contravariant">WIP:Covariant vs Contravariant</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Data Science<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Analysis</h4><ul><li class="navListItem"><a class="navItem" href="/docs/dataanalysis/analysis1">WIP: analysis</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Algorithm</h4><ul><li class="navListItem"><a class="navItem" href="/docs/algorithm/algorithm">WIP:algorithm</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Deep Learning</h4><ul><li class="navListItem"><a class="navItem" href="/docs/deeplearning/deeplearning">WIP:Deep Learning</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Books<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/book/objective">WIP:Ojbective</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Experience<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/experience/courage-to-say-you-don&#x27;t-know">Courage to say you don&#x27;t know</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/how-to-communicate-with-non-developer">Communicate with Non-Devs</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/reasons-why-i-like-static-types">Reasons why I like static types</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/things-i-didn&#x27;t-know-back-then">Things I didn&#x27;t know back then</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Pattern matching</h1></header><article><div><span><p>If you are a Scala user, you probably use pattern matching pretty often. It's really power and useful feature. it's not like Java's asInstanceOf. It doesn't get runtime error without parsing try catch. Well, if you are a Scala user, you don't really use try catch tho.</p>
+<p>Anyways, lets dive into it.</p>
+<p>As we all know, simplest pattern matching</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> integerSample: <span class="hljs-type">Int</span> = <span class="hljs-number">123</span>
+
+<span class="hljs-keyword">val</span> stringInteger: <span class="hljs-type">String</span> = integerSample <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-number">123</span> =&gt; <span class="hljs-string">"123"</span>
+  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">""</span>
+}
+
+</code></pre>
+<p>Yet pretty useful compare to java's switch</p>
+<pre><code class="hljs css language-java">Int integerSample = <span class="hljs-number">123</span>;
+
+<span class="hljs-keyword">switch</span>(integerSample){
+  <span class="hljs-keyword">case</span> <span class="hljs-number">123</span>:
+    <span class="hljs-string">"123"</span>
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">default</span>:
+    <span class="hljs-string">""</span>
+}
+</code></pre>
+<p>I believe Modern java has got a better way to match the values. It feels like any language is better than Java sometimes. So it's sort of meaningless of comparing with Java. But hey, My point is not to compare Scala with Java but just it may be equivalent to such a way if you implemented in Java</p>
+<p>Let's take advantage of types this time.</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">final</span> <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntegerParser</span>(<span class="hljs-params">value: <span class="hljs-type">Int</span></span>)</span>
+
+<span class="hljs-keyword">val</span> prasedInt = <span class="hljs-type">IntegerPraser</span>(value = <span class="hljs-number">1</span>)
+
+parsedInt <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">IntegerParser</span>(value) =&gt; value.toString
+  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-string">"Invalid Int"</span>
+</code></pre>
+<p>Looks familiar? yeah, for sure. you probably have been using this pattern already.</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> optionValue = <span class="hljs-type">Option</span>(<span class="hljs-number">1</span>)
+
+optionValue <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(v) =&gt; ???
+  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; ???
+</code></pre>
+<p>Yeah, that's right. It is not limited to Option, Future or Either. It's for all classes.</p>
+<p>How about multiple depths ?
+Yeah we love those!</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">final</span> <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DummyCaseClass</span>(<span class="hljs-params">value: <span class="hljs-type">Int</span></span>)</span>
+
+<span class="hljs-keyword">val</span> dummyCaseClassOpt = <span class="hljs-type">Option</span>(<span class="hljs-type">DummyCaseClass</span>(<span class="hljs-number">1</span>))
+
+dummyCaseClassOpt <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(<span class="hljs-type">DummyCaseClass</span>(v)) =&gt; v.toString
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(_) =&gt; ???
+  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; ???
+}
+
+<span class="hljs-comment">// equivalent</span>
+dummyCaseClassOpt <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">Some</span>[<span class="hljs-type">DummyCaseClass</span>] =&gt; v.toString
+  <span class="hljs-keyword">case</span> v: <span class="hljs-type">Some</span>[_] =&gt; ???
+  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt; ???
+}
+
+<span class="hljs-comment">// similar. But why would you ?</span>
+<span class="hljs-keyword">if</span> (res19.isInstanceOf[<span class="hljs-type">Some</span>[<span class="hljs-type">IntegerParser</span>]]) <span class="hljs-string">"1"</span> <span class="hljs-keyword">else</span> ???
+</code></pre>
+<p>Another useful example</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> list: <span class="hljs-type">List</span>[<span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]] = <span class="hljs-type">List</span>(<span class="hljs-type">Some</span>(<span class="hljs-number">1</span>), <span class="hljs-type">None</span>, <span class="hljs-type">Some</span>(<span class="hljs-number">2</span>))
+<span class="hljs-keyword">val</span> result: <span class="hljs-type">List</span>[<span class="hljs-type">Int</span>]=list.map{ numberOpt =&gt; numberOpt <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(v) =&gt; v
+  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span> =&gt;  <span class="hljs-number">0</span>
+}}
+</code></pre>
+<p>If you are tricking with List of String, You can pattern match over each values in the list</p>
+<pre><code class="hljs css language-scala"><span class="hljs-string">"1,2,3,4,5,6,7,8,9,0"</span>.split(<span class="hljs-string">","</span>).toList <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> first :: second :: third :: fourth :: fifth :: sixth :: seventh :: eighth :: ninth :: zero :: <span class="hljs-type">Nil</span> =&gt; <span class="hljs-string">"Counting Practice"</span>
+  <span class="hljs-keyword">case</span> _ =&gt; <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Exception</span>(<span class="hljs-string">"This is not what I expected"</span>)
+}
+</code></pre>
+<p>Pretty cool isn't it ? This would be pretty handy if you are a heavy spark user?</p>
+<p>Next but Last, you can put guards in it</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> five = <span class="hljs-number">5</span>
+five <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> v <span class="hljs-keyword">if</span> v &gt; <span class="hljs-number">5</span> =&gt; ???
+  <span class="hljs-keyword">case</span> v <span class="hljs-keyword">if</span> v == <span class="hljs-number">5</span> =&gt; ???
+  <span class="hljs-keyword">case</span> v <span class="hljs-keyword">if</span> v &lt; <span class="hljs-number">5</span> =&gt; ???
+}
+
+<span class="hljs-comment">// more practical example</span>
+<span class="hljs-keyword">final</span> <span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FeeInquiry</span>(<span class="hljs-params">user: <span class="hljs-type">UserId</span>, amount: <span class="hljs-type">BigDecimal</span>, currency: <span class="hljs-type">Currency</span></span>)</span>
+
+<span class="hljs-keyword">val</span> requestedFee: <span class="hljs-type">Option</span>[<span class="hljs-type">FeeInquiry</span>] = ???
+
+requestedFee <span class="hljs-keyword">match</span> {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(<span class="hljs-type">FeeInquiry</span>(user, amount, currency) <span class="hljs-keyword">if</span> currency === <span class="hljs-type">Currency</span>.<span class="hljs-type">USD</span> =&gt;
+    <span class="hljs-type">Right</span>(amount)
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(<span class="hljs-type">FeeInquiry</span>(user, amount, currency) <span class="hljs-keyword">if</span> currency === <span class="hljs-type">Currency</span>.__ =&gt;
+    <span class="hljs-type">Left</span>(<span class="hljs-string">"We can't accept other than USD"</span>)
+  <span class="hljs-keyword">case</span> <span class="hljs-type">None</span>  =&gt;
+    <span class="hljs-type">Right</span>(<span class="hljs-type">BigDecimal</span>(<span class="hljs-number">0</span>))
+}
+</code></pre>
+<p>I reckon the last example is pretty practical even though it looks simple. I personally use often when I have to deal with strings but make sure you turn the type into List of String. Because &quot;split&quot; returns Array[?] type.</p>
+<p>To sum up,</p>
+<ol>
+<li>you match the exact value which is simplest form. if you are using only this type of pattern matching only, you are missing so much benefits.0</li>
+<li>you can pattern match over its type.</li>
+<li>you can pattern match over multiple types which makes it pretty cool.</li>
+<li>you can also pattern match List so it matches length of list as well (what a bonus)</li>
+<li>you can put guard and put conditions there.</li>
+</ol>
+<p>I hope you take advantage of type pattern matching really. It took me long time to know those exist. It does help you minimize typing.</p>
+<p>This is one way of loving your precious fingers I guess.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/scala/inmemory-event-sourcing-in-scala"><span class="arrow-prev">← </span><span>WIP:inmemory-event-sourcing-in-scala</span></a><a class="docs-next button" href="/docs/scala/tuple-type-alias-and-case-class"><span>Tuple, Type Alias and Case Class</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a></a><div></div><div><h5>Social Media</h5><a href="https://www.linkedin.com/in/emmett-sangkyun-na-10236012b/">LinkedIn</a><a href="https://github.com/emmettna">GitHub</a></div><div></div></section><section class="copyright">Copyright © 2021 Emmett Na</section></footer></div></body></html>

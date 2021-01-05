@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>Emmett Na | Tech Blog Blog</title>
+        <title>Data and Programming Blog</title>
         <link>https://emmettna.github.io/blog</link>
-        <description>The best place to stay up-to-date with the latest Emmett Na | Tech Blog news and events.</description>
-        <lastBuildDate>Tue, 05 Jan 2021 06:00:00 GMT</lastBuildDate>
+        <description>The best place to stay up-to-date with the latest Data and Programming news and events.</description>
+        <lastBuildDate>Tue, 24 Oct 2017 06:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
-            <title>Emmett Na | Tech Blog Blog</title>
+            <title>Data and Programming Blog</title>
             <url>https://emmettna.github.io/img/dev_logo_transparant.png</url>
             <link>https://emmettna.github.io/blog</link>
         </image>
         <copyright>Copyright © 2021 Emmett Na</copyright>
-        <item>
-            <title><![CDATA[Sample Post to test]]></title>
-            <link>https://emmettna.github.io/blog/2021/01/05/sample.html</link>
-            <guid>https://emmettna.github.io/blog/2021/01/05/sample.html</guid>
-            <pubDate>Tue, 05 Jan 2021 06:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Write summary here</p>
-]]></description>
-        </item>
         <item>
             <title><![CDATA[New Version 1.0.0]]></title>
             <link>https://emmettna.github.io/blog/2017/10/24/new-version-1.0.0.html</link>

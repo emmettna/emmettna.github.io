@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Fastest way to write DB(postgres) · Data and Programming</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Back when I first started connecting persistent storage, I had no idea absolutely. It was a nightmare literally. Things I googled didn&#x27;t work for some reasons. Most of them were too outdated and some are just not working codes. I didn&#x27;t know how to customize sample codes since I didn&#x27;t know the tricks of Type. And things like Resouces or Managed? They just drove me insane."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Fastest way to write DB(postgres) · Data and Programming"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emmettna.github.io/"/><meta property="og:description" content="Back when I first started connecting persistent storage, I had no idea absolutely. It was a nightmare literally. Things I googled didn&#x27;t work for some reasons. Most of them were too outdated and some are just not working codes. I didn&#x27;t know how to customize sample codes since I didn&#x27;t know the tricks of Type. And things like Resouces or Managed? They just drove me insane."/><meta property="og:image" content="https://emmettna.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://emmettna.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/dev_logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-35663966-2', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/dev_logo_transparant.png" alt="Data and Programming"/><h2 class="headerTitleWithLogo">Data and Programming</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/architecture/cqrs" target="_self">Programming</a></li><li class="siteNavGroupActive"><a href="/docs/deeplearning/deeplearning" target="_self">Data Science</a></li><li class=""><a href="/users" target="_self">About</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Scala</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Programming<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Arechitecture &amp; Design</h4><ul><li class="navListItem"><a class="navItem" href="/docs/architecture/cqrs">CQRS</a></li><li class="navListItem"><a class="navItem" href="/docs/architecture/crud-vs-eventsourcing">Crud vs EventSourcing</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Scala</h4><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/scala/fastest-way-to-write-DB(postgres)-with-scala">Fastest way to write DB(postgres)</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/fastest-way-of-write-Http4s-server">Fastest way of write Http4s server</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/scala-inmemory-repository-with-cats-ref">InMemory Repository with Cats Ref</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/inmemory-event-sourcing-in-scala">WIP:inmemory-event-sourcing-in-scala</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/scala-pattern-matching">Pattern matching</a></li><li class="navListItem"><a class="navItem" href="/docs/scala/tuple-type-alias-and-case-class">Tuple, Type Alias and Case Class</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Functional</h4><ul><li class="navListItem"><a class="navItem" href="/docs/functional/covariant-contravariant">WIP:Covariant vs Contravariant</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Data Science<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Analysis</h4><ul><li class="navListItem"><a class="navItem" href="/docs/dataanalysis/analysis1">WIP: analysis</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Algorithm</h4><ul><li class="navListItem"><a class="navItem" href="/docs/algorithm/algorithm">WIP:algorithm</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Deep Learning</h4><ul><li class="navListItem"><a class="navItem" href="/docs/deeplearning/deeplearning">WIP:Deep Learning</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Books<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/book/objective">WIP:Ojbective</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Experience<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/experience/courage-to-say-you-don&#x27;t-know">Courage to say you don&#x27;t know</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/how-to-communicate-with-non-developer">Communicate with Non-Devs</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/reasons-why-i-like-static-types">Reasons why I like static types</a></li><li class="navListItem"><a class="navItem" href="/docs/experience/things-i-didn&#x27;t-know-back-then">Things I didn&#x27;t know back then</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Fastest way to write DB(postgres)</h1></header><article><div><span><p>Back when I first started connecting persistent storage, I had no idea absolutely. It was a nightmare literally. Things I googled didn't work for some reasons. Most of them were too outdated and some are just not working codes. I didn't know how to customize sample codes since I didn't know the tricks of Type. And things like Resouces or Managed? They just drove me insane.</p>
+<p>But I hope you don't walk the hard way i did. Here's minimal tutorial with <a href="https://github.com/emmettna/scalapostgrestutorial">example project</a>. So no one needs to crack foreheads against wall which i did.</p>
+<ol>
+<li>Connecting Single transactor</li>
+<li>Connecting with Transactor as Resource</li>
+<li>Writing SQL using Doobie</li>
+<li>Execute Transaction</li>
+</ol>
+<p>First thing first, We need add dependencies in <code>build.sbt</code> file. If you were following the sequels you just need to add</p>
+<pre><code class="hljs css language-scala">        ...
+        <span class="hljs-keyword">val</span> doobieVersion = <span class="hljs-string">"0.8.8"</span>
+        ...
+      <span class="hljs-string">"org.tpolecat"</span> %% <span class="hljs-string">"doobie-core"</span> % doobieVersion,
+      <span class="hljs-string">"org.tpolecat"</span> %% <span class="hljs-string">"doobie-postgres"</span> % doobieVersion,
+      <span class="hljs-string">"org.tpolecat"</span> %% <span class="hljs-string">"doobie-hikari"</span>    % doobieVersion
+</code></pre>
+<p>in <code>build.sbt</code> <code>root.settings()</code>. But if you just opened this page, you'd want to add http4s and cats etc. it's too long to paste in here, so please visit the example <a href="https://github.com/emmettna/scalapostgrestutorial/blob/master/build.sbt">githup page</a> kindly.</p>
+<p>Then we are ready to implement a single transactor.</p>
+<h3><a class="anchor" aria-hidden="true" id="1-connecting-single-transactor"></a><a href="#1-connecting-single-transactor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Connecting Single transactor</h3>
+<p>make a package for transactors which deals with databases so you can manage the files efficiently.</p>
+<p>We are going to implement using <em>Doobie</em>. It's pretty much standard as far as i know. Let me know if you know any better library.
+Anyway,</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> cats.effect.{<span class="hljs-type">Async</span>, <span class="hljs-type">Blocker</span>, <span class="hljs-type">ContextShift</span>}
+<span class="hljs-keyword">import</span> doobie.util.<span class="hljs-type">ExecutionContexts</span>
+<span class="hljs-keyword">import</span> doobie.util.transactor.<span class="hljs-type">Transactor</span>
+<span class="hljs-keyword">import</span> doobie.util.transactor.<span class="hljs-type">Transactor</span>.<span class="hljs-type">Aux</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">xa</span></span>[<span class="hljs-type">F</span>[_]](<span class="hljs-keyword">implicit</span> cs: <span class="hljs-type">ContextShift</span>[<span class="hljs-type">F</span>], async: <span class="hljs-type">Async</span>[<span class="hljs-type">F</span>]): <span class="hljs-type">Aux</span>[<span class="hljs-type">F</span>, <span class="hljs-type">Unit</span>] =
+    <span class="hljs-type">Transactor</span>.fromDriverManager[<span class="hljs-type">F</span>](
+      driver = <span class="hljs-string">"org.postgresql.Driver"</span>,
+      url = <span class="hljs-string">"jdbc:postgresql://localhost:5432/"</span>
+      user = <span class="hljs-string">"tutorial"</span>,
+      pass = <span class="hljs-string">"1234"</span>,
+      blocker = <span class="hljs-type">Blocker</span>.liftExecutionContext(<span class="hljs-type">ExecutionContexts</span>.synchronous)
+    )
+</code></pre>
+<p>I hope you don't get stressed with F type. it's just effect type which runs in main method.</p>
+<p>In my case, i set the user name as 'tutorial' and password '1234'. it would be a better idea if you used PureConfig. but for the simplicity, i hardcoded. as you can see i ran the postgres on 5432 port which is default port.</p>
+<p>you'd want to prepare postgres server in advance otherwise use docker-compose i added on <a href="https://github.com/emmettna/scalapostgrestutorial/blob/master/docker-compose.yml">githup</a>.
+Just run on the project root</p>
+<pre><code class="hljs">emmett<span class="hljs-variable">$ </span>docker-compose up -d
+</code></pre>
+<p>But in real world, you'd want to use Resouce. resource releases its connection when it finishes its uses. So it prevents leaks.</p>
+<h3><a class="anchor" aria-hidden="true" id="2-connecting-with-transactor-as-resource"></a><a href="#2-connecting-with-transactor-as-resource" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Connecting with Transactor as Resource</h3>
+<p>I recommend you to use Hikari Connection Pool this is also standard and you can find references easily. For me it was difficult to understand references and documentations and use in real life. So feel free to leave comments if you don't understand.</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">import</span> cats.effect.{<span class="hljs-type">Async</span>, <span class="hljs-type">Blocker</span>, <span class="hljs-type">ContextShift</span>, <span class="hljs-type">Resource</span>}
+<span class="hljs-keyword">import</span> doobie.hikari.<span class="hljs-type">HikariTransactor</span>
+<span class="hljs-keyword">import</span> doobie.util.<span class="hljs-type">ExecutionContexts</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loadTransactor</span></span>[<span class="hljs-type">F</span>[_]: <span class="hljs-type">Async</span>: <span class="hljs-type">ContextShift</span>](
+      driver: <span class="hljs-type">String</span>,
+      url: <span class="hljs-type">String</span>,
+      user: <span class="hljs-type">String</span>,
+      password: <span class="hljs-type">String</span>): <span class="hljs-type">Resource</span>[<span class="hljs-type">F</span>, <span class="hljs-type">HikariTransactor</span>[<span class="hljs-type">F</span>]] =
+    <span class="hljs-keyword">for</span> {
+      ce &lt;- <span class="hljs-type">ExecutionContexts</span>.fixedThreadPool[<span class="hljs-type">F</span>](<span class="hljs-number">4</span>)
+      xa &lt;- <span class="hljs-type">HikariTransactor</span>.newHikariTransactor[<span class="hljs-type">F</span>](
+        driver,
+        url,
+        user,
+        password,
+        ce,
+        <span class="hljs-type">Blocker</span>.liftExecutionContext(ce)
+      )
+    } <span class="hljs-keyword">yield</span> xa
+</code></pre>
+<p>It depends how freqeunt your transactions are, but 4 is more than enough it seems :)</p>
+<p>in the main class, use resource by mapping.<code>xa</code> is common way of calling transactor.</p>
+<pre><code class="hljs css language-scala">  <span class="hljs-keyword">val</span> pgResource: <span class="hljs-type">Resource</span>[<span class="hljs-type">IO</span>, <span class="hljs-type">HikariTransactor</span>[<span class="hljs-type">IO</span>]] =
+    <span class="hljs-type">HikariCpConnectionPool</span>.loadTransactor(<span class="hljs-string">"org.postgresql.Driver"</span>,
+                                          <span class="hljs-string">"jdbc:postgresql://localhost:5432/"</span>,
+                                          <span class="hljs-string">"tutorial"</span>,
+                                          <span class="hljs-string">"1234"</span>)
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span></span>(args: <span class="hljs-type">List</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">IO</span>[<span class="hljs-type">ExitCode</span>] =
+    pgResource.use { xa =&gt;
+      <span class="hljs-type">TutorialServer</span>.stream[<span class="hljs-type">IO</span>](xa).compile.drain.as(<span class="hljs-type">ExitCode</span>.<span class="hljs-type">Success</span>)
+    }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="3-writing-sql-using-doobie"></a><a href="#3-writing-sql-using-doobie" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Writing SQL using Doobie</h3>
+<p>Now let's write some PostgreSQL queries.</p>
+<pre><code class="hljs css language-scala">import com.example.tutorial.tutorial.domain.User
+import com.example.tutorial.tutorial.persistent.UserRepository
+import doobie.free.connection.ConnectionIO
+import doobie.implicits._
+
+  def select(id: BigDecimal): doobie.Query0[User] =
+    sql"""
+         | SELECT id, name, email FROM  "user" WHERE id = $id
+         |""".stripMargin.query[User]
+
+  def add(u: User): doobie.Update0 =
+    sql"""
+         | INSERT INTO "user" (id, name, email) VALUES (${u.id}, ${u.name}, ${u.email})
+         |""".stripMargin.update
+</code></pre>
+<p><code>doobie.implicits._</code> has got most of necessary things. so don't forget to import. and there are <code>doobie.postgres.implicits._</code> as well, it's useful when you transform case class into postgres objects. I just didn't need it in this example. but this will be usefuli guerantee.</p>
+<p>as you could see above, query's return type is <code>doobie.???</code> which is not expected type we wanted.
+we need to make ConnectionIO type. this case the <code>F</code> type is ConnectionIO.</p>
+<pre><code class="hljs css language-scala">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span></span>(id: <span class="hljs-type">BigDecimal</span>): <span class="hljs-type">ConnectionIO</span>[<span class="hljs-type">Option</span>[<span class="hljs-type">User</span>]] =
+    <span class="hljs-type">PostgresUserRepository</span>.select(id).option
+
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span></span>(u: <span class="hljs-type">User</span>): <span class="hljs-type">ConnectionIO</span>[<span class="hljs-type">Unit</span>] =
+    <span class="hljs-type">PostgresUserRepository</span>.add(u).run.map(_ =&gt; ())
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="4-execute-transaction"></a><a href="#4-execute-transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Execute Transaction</h3>
+<p>Once you got the connectionIO type, you can put transactor with it.</p>
+<pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> xa: transactor.<span class="hljs-type">Transactor</span>[<span class="hljs-type">F</span>]  <span class="hljs-comment">// in this project we used `cats.effect.IO` type. so eventually the `F` type will turn into `IO` type</span>
+
+userRepository.add(user).transact(xa) <span class="hljs-comment">// F[Unit]</span>
+userRepository.find(userId).transact(xa) <span class="hljs-comment">// F[Option[User]</span>
+</code></pre>
+<p>you might wonder why use <code>F</code> instead of adding <code>IO</code> straight. I had the same question back then but just didn't have anybody to ask.</p>
+<p>There are many effects types along with <code>cats.effect.IO</code>. Since catsIO is generic, it's not very optimized to performance. So it's mostly used for toy progject or low latency projects like, less than 10 requests although it would matter what kind of service it is.
+Along with that, there are <code>ZIO</code>, <code>Monix</code> and others.</p>
+<p>Anyways, this is pretty much it. I highly recommend you to check the example repo. since my explanation is not enough. Developers learn from codes i think.</p>
+<p>check the transactors in <a href="https://github.com/emmettna/scalapostgrestutorial/tree/master/src/main/scala/com/example/tutorial/tutorial/common/persistent"><code>com.example.tutorial.tutorial.common.persistent</code></a>
+and repository in <a href="https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/persistent/postgresrepository/PostgresUserRepository.scala"><code>~~.tutorial.persistent.postgresrepository</code></a>
+then finally sewing services in <a href="https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/Main.scala"><code>TutorialServer</code></a> file and <a href="https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/TutorialServer.scala"><code>Main</code></a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/architecture/crud-vs-eventsourcing"><span class="arrow-prev">← </span><span class="function-name-prevnext">Crud vs EventSourcing</span></a><a class="docs-next button" href="/docs/scala/fastest-way-of-write-Http4s-server"><span>Fastest way of write Http4s server</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a></a><div></div><div><h5>Social Media</h5><a href="https://www.linkedin.com/in/emmett-sangkyun-na-10236012b/">LinkedIn</a><a href="https://github.com/emmettna">GitHub</a></div><div></div></section><section class="copyright">Copyright © 2021 Emmett Na</section></footer></div></body></html>
