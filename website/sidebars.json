@@ -23,6 +23,14 @@
         "ids": ["functional/covariant-contravariant"]
       }
     ],
+    "Experience": [
+      "experience/courage-to-say-you-don't-know", 
+      "experience/how-to-communicate-with-non-developer",
+      "experience/reasons-why-i-like-static-types",
+      "experience/things-i-didn't-know-back-then"
+    ]
+  },
+  "datascience": {
     "Data Science": [
       {
         "type":"subcategory",
@@ -40,14 +48,9 @@
         "label": "Deep Learning",
         "ids": ["deeplearning/deeplearning"]
       }
-
-    ],
-    "Books": ["book/objective"],
-    "Experience": [
-      "experience/courage-to-say-you-don't-know", 
-      "experience/how-to-communicate-with-non-developer",
-      "experience/reasons-why-i-like-static-types",
-      "experience/things-i-didn't-know-back-then"
     ]
+  },
+  "Books": {
+    "Books" : ["book/objective"]
   }
 }
