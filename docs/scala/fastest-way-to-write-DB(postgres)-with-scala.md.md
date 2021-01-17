@@ -1,17 +1,18 @@
 ---
 id: fastest-way-to-write-DB(postgres)-with-scala
-title: Fastest way to write DB(postgres)
+title: Fastest way to write DB(postgres) in Scala
 sidebar_label: Fastest way to write DB(postgres)
 ---
 Back when I first started connecting persistent storage, I had no idea absolutely. It was a nightmare literally. Things I googled didn't work for some reasons. Most of them were too outdated and some are just not working codes. I didn't know how to customize sample codes since I didn't know the tricks of Type. And things like Resouces or Managed? They just drove me insane.
 
 But I hope you don't walk the hard way i did. Here's minimal tutorial with [example project](https://github.com/emmettna/scalapostgrestutorial). So no one needs to crack foreheads against wall which i did.
 
-1. Connecting Single transactor
-2. Connecting with Transactor as Resource
-3. Writing SQL using Doobie
-4. Execute Transaction
+#### 1. Connecting Single transactor
+#### 2. Connecting with Transactor as Resource
+#### 3. Writing SQL using Doobie
+#### 4. Execute Transaction
 
+## Dependency
 
 First thing first, We need add dependencies in `build.sbt` file. If you were following the sequels you just need to add
 ```scala
@@ -27,7 +28,7 @@ in `build.sbt` `root.settings()`. But if you just opened this page, you'd want t
 
 Then we are ready to implement a single transactor.
 
-### 1. Connecting Single transactor
+## 1. Connecting Single transactor
 make a package for transactors which deals with databases so you can manage the files efficiently.
 
 We are going to implement using _Doobie_. It's pretty much standard as far as i know. Let me know if you know any better library.
@@ -60,7 +61,7 @@ emmett$ docker-compose up -d
 
 But in real world, you'd want to use Resouce. resource releases its connection when it finishes its uses. So it prevents leaks.
 
-### 2. Connecting with Transactor as Resource
+## 2. Connecting with Transactor as Resource
 I recommend you to use Hikari Connection Pool this is also standard and you can find references easily. For me it was difficult to understand references and documentations and use in real life. So feel free to leave comments if you don't understand.
 
 ```scala
@@ -102,7 +103,7 @@ in the main class, use resource by mapping.`xa` is common way of calling transac
     }
 ```
 
-### 3. Writing SQL using Doobie
+## 3. Writing SQL using Doobie
 
 Now let's write some PostgreSQL queries.
 
@@ -136,7 +137,7 @@ we need to make ConnectionIO type. this case the `F` type is ConnectionIO.
     PostgresUserRepository.add(u).run.map(_ => ())
 ```
 
-### 4. Execute Transaction
+## 4. Execute Transaction
 Once you got the connectionIO type, you can put transactor with it.
 
 ```scala
@@ -153,9 +154,13 @@ Along with that, there are `ZIO`, `Monix` and others.
 
 Anyways, this is pretty much it. I highly recommend you to check the example repo. since my explanation is not enough. Developers learn from codes i think.
 
-check the transactors in [`com.example.tutorial.tutorial.common.persistent`](https://github.com/emmettna/scalapostgrestutorial/tree/master/src/main/scala/com/example/tutorial/tutorial/common/persistent)
-and repository in [`~~.tutorial.persistent.postgresrepository`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/persistent/postgresrepository/PostgresUserRepository.scala)
-then finally sewing services in [`TutorialServer`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/Main.scala) file and [`Main`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/TutorialServer.scala)
+## Apprendix
+
+Check the transactors in here[`com.example.tutorial.tutorial.common.persistent`](https://github.com/emmettna/scalapostgrestutorial/tree/master/src/main/scala/com/example/tutorial/tutorial/common/persistent)
+
+And repository in [`~~.tutorial.persistent.postgresrepository`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/persistent/postgresrepository/PostgresUserRepository.scala)
+
+Then finally sewing services in [`TutorialServer`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/Main.scala) file and [`Main`](https://github.com/emmettna/scalapostgrestutorial/blob/master/src/main/scala/com/example/tutorial/tutorial/TutorialServer.scala)
 
 
 

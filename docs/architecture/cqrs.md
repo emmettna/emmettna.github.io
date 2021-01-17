@@ -9,27 +9,34 @@ When I first started programming, I didn't even know about ORM(Object-relational
 
 So there's no need for fears of fancy names like I did. And there aren't such specific ways that you need to code. As long as your application does what it's gotta do, that's all it matters.
 
-So let's get on with it
+So let's get on to it
 
 We gonna talk about the simplest version. which divide command and query only. If you are looking for a storage divided model, we will talk about it in next session.
 
-### 1. Meaning of CQRS
+### 1. What is CQRS
 ### 2. How to segregate
 ### 3. A bit of coding
 
 ---
 
-## 1. Meaning of CQRS
+## What is CQRS
 
-Rather than explaining the meanings, let me give you an example. When my wife and I go out for coffee, I usually make order for both of us because I'm the one who need to pay (with love). Since I made the order, she picks up coffee from counter. So that's command and query segregation. I command and my wife queries. Back to programming world, I ordered to Command Domain, and my wife queried Query Domain. So Input's domain and output's domain is different. If you don't understand what `domain` is, it's just a class that is consist of cores of each service.
+Rather than plain explanation, let me explain to you by an example.
+Every sunday morning, my wife and I, we go out for coffee. When it comes to our turn to order, it's me who making orders for both of us because I'm the one who needs to pay for coffee(for good). Since I made the order, she picks up coffee from the counter. So that's command and query segregation. I command and my wife queries. Back to programming world, I ordered to Command Domain, and my wife queried Query Domain. So the vehicle of input and output is different. But the vehicle doesn't always have to be different. But thinking about why it's gotta be the same. Not much reason.
 
-So command and query responsibility segregation means, if one domain command and queries at the same time, apart it into two. That's all about it
+In coding, if you use the same model or data structure in command and query, you can save time writing extra code. But that will result in overheads of unneccessary data.
 
-## 2. How to segregate
-if you have a crud model, it's pretty simple. Anything read from db separate from the others.
-For example, if you have a REST Api Server, GET will be separated from others in domain layer. I guess it will be a good practice to segregate the api layer too. I haven't tried to segregate the api layer but let me know if you have an experience with it.
+So command and query responsibility segregation means, if one domain command and queries at the same time, apart it into two or more if needed. 
 
-## 3. A bit of coding
+That's pretty much about it. Simple concept but we've forgotten for a long time.
+
+## How to segregate
+### In CRUD service
+Just try to separate command(insert) model from query(select) model. Let's say you have a `User` domain which has `name` and `age`. if you want to show only `age` but `name`, you don't need to query name. so you will need to query only `age`.
+
+For this reason, ORM is a pretty bad practice. Better write queries than overhead and security vulnerability.
+
+## A bit of coding
 
 Let's try small segregations
 

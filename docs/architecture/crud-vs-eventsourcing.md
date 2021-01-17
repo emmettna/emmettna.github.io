@@ -3,14 +3,24 @@ id: crud-vs-eventsourcing
 title: CRUD vs EventSourcing
 sidebar_label: Crud vs EventSourcing
 ---
+## Reasons why we need to compare
+When it comes to Software Architecture, there are many good practices in certain situations. We try to find the best fit architecture in our services. But since program evolves often time, designs must be changed by businuss needs. I wish there is one divine architecture covers all(the Lord Of the Architectures, one architecture to rule them all..). But that doesn't exist as we all know it.
+This is why we need to compare designs and patterns. CRUD is the most beloved Architecture for the reasons and here is Event Sourcing I brought to argue now.
+
 
 ## First hand, What are CRUD and Event Sourcing?
 
 Let's start with something we are familiar with first.
 
-CRUD stands for Create, Read, Update and Delete. And it's a pattern  that we use very common. Back in the primitive days, I guess we didn't really do anything special complicated with backend server. All it needed to do was storing data then get it back. For example like boards, galleries and comments. Your program just needed to save the data, load the data, update the data and delete the data. Pretty straight forward. All it needed simply CRUD.
+### CRUD
 
-On the other hand, Services like Bank Account, it can't just CRUD. Let's say that your bank updated wrong amount of money in your account  by mistake like -1000 bucks. Then guess what? There's no trail that you can prove your money is stolen !
+CRUD stands for Create, Read, Update and Delete. And it's a pattern  that we use very common. Back in the primitive days, I guess we didn't really do anything special complicated with backend server. All it needed to do was storing data then get it back. For example like boards, galleries and comments. Your program just needed to save the data, load the data, update the data and delete the data. Pretty straight forward. 
+
+All it needed was simply CRUD.
+
+### Event Sourcing
+
+On the other hand, Services like Bank Account, it can't just CRUD. Let's say that your bank updated wrong amount of money in your account  by mistake like -1000 dollar. Then guess what? There's no trail that you can prove your money is stolen! This is when you need Event Sourcing
 
 > Oh why not leave a trail in every update call in a different table?
 
@@ -39,7 +49,7 @@ CRUD is light weighted than  Event sourcing comparably. Although it can vary. So
 
 When we talk about Event sourcing, there's a friend called CQRS. They are best friends really. Event sourcing can't have strong power without its best friend. CQRS is well, it's just generally good practice I reckon. Especially if you like FP, you will get along with CQRS better actually.
 
-If you are not familiar with CQRS, follow the link and have a quick look since it's not so complicated concept.
+If you are not familiar with CQRS, [follow the link]("cqrs") and have a quick look since it's not so complicated concept.
 
 ## So why Event sourcing gets more power with CQRS?
 
@@ -62,4 +72,4 @@ Briefing up,
 
 ##### 1. Employ CRUD for simple data storing app
 ##### 2. Event Sourcing is not MacGyver but it's really good when you deal with state.
-##### 3. [CQRS](/docs/architecturedesign/cqrs) is a good help for Event Sourcing.
+##### 3. [CQRS](cqrs) is a good help for Event Sourcing.

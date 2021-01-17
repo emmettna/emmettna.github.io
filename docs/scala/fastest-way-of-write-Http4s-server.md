@@ -1,13 +1,16 @@
 ---
 id: fastest-way-of-write-Http4s-server
-title: Fastest way of write Http4s server
+title: Fastest way of write Http4s server in Scala
+sidebar_label: Fastest way of write Http4s server
 ---
 
 There are a few options when it comes to deploy http server using Scala. If your server is to be a full stack server which needs to deploy webpage and server at the same time, Play will be a good option. But if your intention is to deploy a rest api server and if you wanna use more type stricter  codings, Http4s is the best option I believe.
 
-1. Generate Http4s Server by Sbt commands
-2. Set basic infos and run
-3. Trick it by your taste
+#### 1. Generate Http4s Server by Sbt commands
+#### 2. Set basic information and run
+#### 3. Trick it by your taste
+
+## Dependency
 
 We will use following versions, in sbt settings
 ```scala
@@ -16,7 +19,7 @@ val http4sVersion = "0.21.1"
 Val circeVersion = "0.13.0"
 ```
 
-1. Generate Http4s Server by Sbt Commands
+## 1. Generate Http4s Server by Sbt Commands
 
 	I hope you have Sbt and JDK are installed already :)
 
@@ -44,7 +47,7 @@ I set the name `tutorial` if you have a specific project name, then that will be
 
 We are not dealing with logbook and specs2 so it didn't matter much.
 
-2. Set basic infos and run
+## 2. Set basic information and run
 In my device 8080 is in use with different project so I changed port 8090 at `src.main.scala.com.example.tutorial.tutorial.TutorialServer`
 
 > I hope you don't use hard coded port number and host. That's not the best practice as far as I can tell
@@ -74,14 +77,15 @@ curl localhost:8090/hello/emmett
 This is pretty much just deploying a sample Http4s server. Wasn't so hard actually.
 But you always need to bake your own breads with extra sugars. So let's try that.
 
-3. Trick it by your taste
+## 3. Trick it by your taste
 
 Let's make some requirements.
 - it should be able to return `case class` defined object
 - it should be able to take post request body as `case class UserName`
 - it should return Forbidden for anonymous accessing user level request
 
-first of all, I defined tutorial case class for return on GET request
+First of all, I defined tutorial case class for return on GET request
+
 ```scala
 package com.example.tutorial.tutorial.presentation
 
@@ -204,7 +208,7 @@ I added repository on reference that i worked you can match with yours if you ca
 
 Good Code!
 
-**Reference**
+## Reference
 
 Http4s giter8 template : [github](https://github.com/http4s/http4s.g8)
 

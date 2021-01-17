@@ -1,19 +1,51 @@
 ---
 id: scala-inmemory-repository-with-cats-ref
-title: Scala InMemory Repository with Cats Ref
+title: InMemory Repository with Scala Cats Ref
 sidebar_label: InMemory Repository with Cats Ref
 ---
+## What's Inmemory Repository
+
+In Memory repository is, volitile repository. Something to be deleted when your system's power is off. Not sustainable nor fault tolable. 
+
+But fast and easy to use.
+
+## When to use
+
 1. Not enough time to implement Real persistent storage.
 2. But stub is too limited option for various cases.
 3. When my boss tells me to do it (Duh!)
 
-That's when I use InMemory storage. It's pretty handy when you run your test in your local device. It adds up and erase all the data every time you run it. Plus you can set the initial data for the test. Plus Plus easier(should I say faster?) to implement/refactor codes. Which leads to  productivity.
+That's when I use InMemory storage. It's pretty handy when you run your test in your local device or any none production environment. It adds up and erase all the data every time you run it. Plus you can set the initial data for the test. Plus, it's easier(should I say faster?) to implement/refactor codes. Which leads to high productivity.
 
 If you are reading this, you already decided to implement InMemory Storage. I guess I don't need to explain the benefits of it(My bad). Let's do some coding then.
 
-Just Right before type codes, One thing I'd like to mention about it concurrency. Which is why I and We are going to use `Cats.Ref` Well, it's not exactly called `Cats.Ref` but for the sake of brevity.
+## Dependency
 
-Honestly I'm not really good at Cats effect types but let me share at least as much as I know for now. I will abstract Effect type. But it won't matter as long as you use any cats implemented effect types like CatsIO, Zio or what not.
+You need only Cats Core for this, but if you need a quick effect type, then add cats effect too
+
+```scala
+...
+val catsVersion = "0.2.2"
+...
+"org.typelevel" %% "cats-core"  % catsVersion,
+"org.typelevel" %% "cats-effect" % catsVersion,
+```
+
+## Handling Concurrency
+
+Just Right before type codes, One thing I'd like to mention about is concurrency. Which is why I and We are going to use `Cats.Ref` Well, it's not exactly called `Cats.Ref` but for the sake of brevity, Let's call it this way.
+
+By using Cats.Ref, we can handle concurrency problem. the one who has the key will open the lock.
+Yes, it takes care of concurrency problem behind the scene.
+
+## Effect type
+
+Honestly I'm not really good at explaining Effect type. So just to tell you the breif concept for now. 
+Most commonly we use `F` for effect type. It's just convention. And `F[_]` means, F wraps effect inside which will be caused. But it will cary all the way until it reaches `~~.Run`. So effects can be safely kept.
+
+We will deal with this later on. So don't worry about it too much. But for now, `Cats.Ref` is wrapped in an effect type. And at some point, it will need to call `Run`. So during your test, even if console doesn't print the actual content, don't get confused much. It's just natural because it's not run yet but kept in memory area.
+
+## Simple Example
 
 Let's say we have such repository
 
@@ -31,7 +63,7 @@ object SimpleCrud {
 }
 ```
 
-Then InMemory storage can be implemented such way
+Our SimpleCrud repository can be implemented like so.
 
 ```scala
 import cats.Applicative
@@ -55,7 +87,9 @@ object InMemorySimpleCrud {
 
 ```
 
-It ain't so bad huh?
+It's not so bad huh?
+
+## Recap
 
 I skipped one flatMap in order to make the code more shorter and clean. I wouldn't recommend using Ref.unsafe unless it's a toy project. Only difference is F[Ref[F, _]] and Ref[F, _]. Just the outer Effect type
 
