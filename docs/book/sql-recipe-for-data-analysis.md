@@ -3,6 +3,12 @@ id: sql-recipe-for-data-analysis
 title: SQL Recipe For Data Analysis
 sidebar_label: SQL Recipe(in Korean)
 ---
+### Author
+- 가사키 나가토, 다미아 나오토(加嵜 長門, 田宮 直人)
+
+### 원본
+- [Amazon JP](https://www.amazon.co.jp/%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E5%88%86%E6%9E%90-%E6%B4%BB%E7%94%A8%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AESQL%E3%83%AC%E3%82%B7%E3%83%94-%E5%8A%A0%E5%B5%9C-%E9%95%B7%E9%96%80-ebook/dp/B06XRWPPC9/ref=as_li_ss_tl?ie=UTF8&qid=1490933410&sr=8-1&keywords=%E3%83%93%E3%83%83%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E6%B4%BB%E7%94%A8%E3%80%80SQL%E3%83%AC%E3%82%B7%E3%83%94&linkCode=sl1&tag=mythang-22&linkId=04fb8969845d07478c7fcc69e6a12c71)
+
 ## Summary
 
 - 데이터 분석을 해야 하는 실무자가 어떤 상황에서 어떤 데이터를 뽑아야 하는지 나오며, 그에 해당하는 SQL예제가 나와 있다. 예제는 다양한 **빅데이터 SQL** 쿼리들이 나와 있다. 케이스들이 많이 나와있고, 각각의 상황에 맞는 데이터 전처리 방법이 순차적으로 나와있다.
