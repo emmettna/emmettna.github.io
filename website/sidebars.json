@@ -51,6 +51,11 @@
     ]
   },
   "book": {
-    "Books" : ["book/objective"]
+    "Books" : [
+      "book/lean-branding",
+      "book/sql-recipe-for-data-analysis",
+      "book/objective"
+    ]
   }
 }
+
