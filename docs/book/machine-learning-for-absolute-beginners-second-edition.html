@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Machine Learning For Absolute Beginners Second Edition · Data and Programming</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Summary"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Machine Learning For Absolute Beginners Second Edition · Data and Programming"/><meta property="og:type" content="website"/><meta property="og:url" content="https://emmettna.github.io/"/><meta property="og:description" content="## Summary"/><meta property="og:image" content="https://emmettna.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://emmettna.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/dev_logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-35663966-2', 'auto');
+              ga('send', 'pageview');
+            </script><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/dev_logo_transparant.png" alt="Data and Programming"/><h2 class="headerTitleWithLogo">Data and Programming</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/architecture/cqrs" target="_self">Programming</a></li><li class=""><a href="/docs/deeplearning/deeplearning" target="_self">Data Science</a></li><li class="siteNavGroupActive"><a href="/docs/book/objective" target="_self">Book</a></li><li class=""><a href="/about" target="_self">About</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Books</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Books<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/book/lean-branding">Lean Branding</a></li><li class="navListItem"><a class="navItem" href="/docs/book/sql-recipe-for-data-analysis">SQL Recipe(in Korean)</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/book/machine-learning-for-absolute-beginners-second-edition">Machine Learning For Absolute Beginners</a></li><li class="navListItem"><a class="navItem" href="/docs/book/objective">WIP:Ojbective</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Machine Learning For Absolute Beginners Second Edition</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="summary"></a><a href="#summary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Summary</h2>
+<ul>
+<li>Concepts of Machine learnings and base Algorithms are explained</li>
+<li>In the later chapters, shows some codes to follow. So readers can try the very basic machine learning algorithms</li>
+<li>Since targeted readers who don't have much machine learning, tried to explain as easy as possible.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="what-i-liked-about"></a><a href="#what-i-liked-about" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What I liked about</h2>
+<ul>
+<li>it can be read without thinking too much</li>
+<li>Rather than comparing many algorithms, book tells me what to try on the next step</li>
+<li>Small sized book</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="what-i-didnt-like-about"></a><a href="#what-i-didnt-like-about" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What I didn't like about</h2>
+<ul>
+<li>Although the writer wanted to explain as easy as possible, new words still confuses readers</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="recommend-to"></a><a href="#recommend-to" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Recommend to</h2>
+<ul>
+<li>Someone who has programming background</li>
+<li>Type of people who can just skip when they don't understand</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="memo"></a><a href="#memo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Memo</h2>
+<ul>
+<li>Heatmap and Scatterplot are graphs that can be used to analyze relation and correlation. <strong>-1 means perfectly negative relation, 0 means no relation</strong></li>
+<li>sigmoid function: y = 1/ 1+ e^-x
+<ul>
+<li>x = independent variable</li>
+<li>e = Euler's constant = 2.718</li>
+<li>Sigmoid function converst independent variables into an expression of probability between 0 and 1 in relation to the dependent variable</li>
+</ul></li>
+<li>The logistic hyperplane represents a classification boundary rather than a prediction line</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="quantitative-vs-qualitative"></a><a href="#quantitative-vs-qualitative" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quantitative vs Qualitative</h3>
+<h4><a class="anchor" aria-hidden="true" id="linea-regression"></a><a href="#linea-regression" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Linea Regression</h4>
+<ul>
+<li>linear Regression is useful for qualifying relationships between variables to a continuous outcome</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="logistic-regression"></a><a href="#logistic-regression" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logistic Regression</h4>
+<ul>
+<li>For incontinuous 'y', for instance categorical variables
+<ul>
+<li>ex) new customer, refusing customer</li>
+</ul></li>
+<li>Logistic regression's core strength lies in binary prediction. Others for Decision Tree or SVM</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="knnk-nearest-neighbor"></a><a href="#knnk-nearest-neighbor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>KNN(K-Nearest Neighbor)</h3>
+<ul>
+<li>Setting K too low or too high will combine bias</li>
+<li>The algorithm works better with continuous variables</li>
+<li>Not suitable for large number of data
+<ol>
+<li>it costs too much resource to perform</li>
+<li>it can't represent well high dimensions</li>
+</ol></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="k--means-measuring"></a><a href="#k--means-measuring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>K- Means Measuring</h3>
+<ul>
+<li>Useful in segmentation</li>
+<li>Setting K is difficult these three are the general way to find K
+<ol>
+<li>By using scree plot to find the right spot</li>
+<li>By root n/2</li>
+<li>By domain knowledge</li>
+</ol></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="bias--variance"></a><a href="#bias--variance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bias &amp; Variance</h3>
+<ul>
+<li><p>bias is the gap between the value predicted by your model and the actual value</p></li>
+<li><p>variance is how scattered predicted values are in relation to each other</p>
+<p><img src="/img/ml_variance_bias.jpeg" alt="ml_variance_bias"></p></li>
+<li><p>There's no perfect hyperparameter for all. Finding the right balance it the key</p>
+<ul>
+<li>Insufficient vs Overfitting</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="svm"></a><a href="#svm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SVM</h3>
+<ul>
+<li>Mostly used for classific technique for predicting categorical outcome</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="annartificial-neural-network"></a><a href="#annartificial-neural-network" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ANN(Artificial Neural Network)</h3>
+<ul>
+<li>Reinforcement learning</li>
+<li>Blackbox Dilemma
+<ul>
+<li>the network can approximately accurate output, tracing its decision structure reveals limited to no insight about how specific variables influence its decision</li>
+</ul></li>
+<li>When to use?
+<ul>
+<li>prediction task with large number of input features and complex patterns and especially problem that computes to decipher but trivial for human</li>
+</ul></li>
+<li>Perceptron
+<ul>
+<li>Perceptron build prediction model based on 5 steps
+<ol>
+<li>Inputs are fed into the processor</li>
+<li>Perceptron applies weights to estimate the value of these inputs</li>
+<li>Perceptron computes the error between the estimated value and the actual value</li>
+<li>Perceptron adjust its weight according to the error</li>
+<li>These steps are repeated until you are satisfied with the model's accuracy. The training model can then be applied to the test data</li>
+</ol></li>
+<li>A weakness of perceptron is a large neural network can introduce polarizing result</li>
+<li>An alternative is sigmoid neuron, sigmoid neuron accepts any value between 0 and 1 instead of binary filter ⇒ output is no longer binary</li>
+<li>Multilayer Perceptron is an algorithm for predicting a categorical or continuous target variable</li>
+</ul></li>
+<li><strong>Deep Learing</strong>
+<ul>
+<li><p>at least 5 - 10 node layers in stacks with multiple hyperparameters and exponential inputs</p>
+<p><img src="/img/ml_diagram.jpeg" alt=""></p></li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="decision-trees"></a><a href="#decision-trees" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decision Trees</h3>
+<ul>
+<li>Transparent and easy to interpret</li>
+<li>fewer data and less computational resources</li>
+<li>Wide range of use cases
+<ul>
+<li>ex) Scholarship Recipient, predicting e-commerce sales, selecting the right job applicant</li>
+</ul></li>
+<li>Random Forest
+<ul>
+<li>works well for obtaining a quick benchmark model</li>
+</ul></li>
+<li>Boosting
+<ul>
+<li>A large pool of decision trees</li>
+<li>At each iteration, weights are added based on the result of the previous iteration</li>
+<li>Slow process speed (Synced job waiting other trees to finish)</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="ensemble-modeling"></a><a href="#ensemble-modeling" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ensemble Modeling</h3>
+<ul>
+<li>Unified prediction model</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="training-data-mae-vs-test-data-mae"></a><a href="#training-data-mae-vs-test-data-mae" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Training data MAE vs Test data MAE</h3>
+<ul>
+<li>When there are big difference between them, it's a signal of an overfitting issue</li>
+<li>Optimizing hyperparameter can increase model accuracy.
+<ul>
+<li>GridSearch: Tries every possible combination</li>
+<li>RandomizedSearchCV: Randomly once in the range</li>
+</ul></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/book/sql-recipe-for-data-analysis"><span class="arrow-prev">← </span><span>SQL Recipe(in Korean)</span></a><a class="docs-next button" href="/docs/book/objective"><span>WIP:Ojbective</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#summary">Summary</a></li><li><a href="#what-i-liked-about">What I liked about</a></li><li><a href="#what-i-didnt-like-about">What I didn't like about</a></li><li><a href="#recommend-to">Recommend to</a></li><li><a href="#memo">Memo</a><ul class="toc-headings"><li><a href="#quantitative-vs-qualitative">Quantitative vs Qualitative</a></li><li><a href="#knnk-nearest-neighbor">KNN(K-Nearest Neighbor)</a></li><li><a href="#k--means-measuring">K- Means Measuring</a></li><li><a href="#bias--variance">Bias &amp; Variance</a></li><li><a href="#svm">SVM</a></li><li><a href="#annartificial-neural-network">ANN(Artificial Neural Network)</a></li><li><a href="#decision-trees">Decision Trees</a></li><li><a href="#ensemble-modeling">Ensemble Modeling</a></li><li><a href="#training-data-mae-vs-test-data-mae">Training data MAE vs Test data MAE</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a></a><div></div><div><h5>Social Media</h5><a href="https://www.linkedin.com/in/emmett-sangkyun-na-10236012b/">LinkedIn</a><a href="https://github.com/emmettna">GitHub</a></div><div></div></section><section class="copyright">Copyright © 2021 Emmett Na</section></footer></div></body></html>
