@@ -54,6 +54,7 @@
     "Books" : [
       "book/lean-branding",
       "book/sql-recipe-for-data-analysis",
+      "book/machine-learning-for-absolute-beginners-second-edition",
       "book/objective"
     ]
   }
