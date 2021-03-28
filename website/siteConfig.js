@@ -41,7 +41,7 @@ const siteConfig = {
     {doc: 'architecture/cqrs', label: 'Programming'},
     {doc: 'deeplearning/deeplearning', label: 'Data Science'},
 
-    {doc: 'book/objective', label: 'Book'},
+    {doc: 'book/lean-analytics', label: 'Book'},
     // {page: 'help', label: 'Help'},
     // {blog: true, label: 'Blog'},
     {page: 'about', label: 'About'},
